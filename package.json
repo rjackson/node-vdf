@@ -1,10 +1,25 @@
 {
-  "name": "VDF",
-  "version": "0.0.1",
+  "name": "vdf",
+  "version": "0.0.2",
   "private": false,
   "scripts": {
     "start": "node vdf"
   },
   "dependencies": {
-  }
+    "util": "*"
+    },
+  "readmeFilename": "README.md",
+  "description": "A port of steamodd's vdf.py to node.js.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/RJacksonm1/node-vdf.git"
+  },
+  "keywords": [
+    "steam",
+    "valve",
+    "vdf"
+  ],
+  "author": "Rob Jackson",
+  "license": "ISC"
 }
