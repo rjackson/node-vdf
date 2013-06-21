@@ -133,9 +133,9 @@ var SIMPLE_OBJ = EXPECTED_UNQUOTED_VDF,
 
     EXPECTED_ARRAY_OBJ = {
         "array": {
-            "0": "a",
-            "1": "b",
-            "2": "c"
+            "a": "1",
+            "b": "1",
+            "c": "1"
         }
     },
 
@@ -151,12 +151,12 @@ var SIMPLE_OBJ = EXPECTED_UNQUOTED_VDF,
                 "key": "value"
             },
             "array": {
-                "0": "a",
-                "1": "b",
-                "2": "c",
-                "3": "1",
-                "4": "2",
-                "5": "3"
+                "a": "1",
+                "b": "1",
+                "c": "1",
+                "1": "1",
+                "2": "1",
+                "3": "1"
             },
             "number": "1024"
         }
