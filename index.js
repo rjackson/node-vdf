@@ -138,11 +138,11 @@ function _dump(obj, indent, mult) {
 
     for (var k in obj) {
         var v = obj[k];
-        if (typeof v === 'object') {
+        if (typeof v === 'object' && !(v instanceof Array)) {
             nodes.push(util.format(nodefmt, k, _dump(v, indent, mult)));
         }
-        else if (typeof v === 'array') {
-            lst = v.map(function(more_v){ return util.format(v, more_v); });
+        else if (v instanceof Array) {
+            lst = v.map(function(more_v){ return util.format(lstfmt, more_v); });
             nodes.push(util.format(nodefmt, k, lst.join("\n") + '\n'));
         }
         else {
