@@ -3,12 +3,9 @@
   "version": "0.0.2",
   "private": false,
   "scripts": {
-    "start": "node vdf"
+    "test": "nodeunit test.js"
   },
-  "dependencies": {
-    "util": "*"
-    },
-  "readmeFilename": "README.md",
+  "dependencies": {},
   "description": "A port of steamodd's vdf.py to node.js.",
   "main": "index.js",
   "repository": {
@@ -21,5 +18,12 @@
     "vdf"
   ],
   "author": "Rob Jackson",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RJacksonm1/node-vdf/issues"
+  },
+  "homepage": "https://github.com/RJacksonm1/node-vdf",
+  "devDependencies": {
+    "nodeunit": "^0.9.1"
+  }
 }
