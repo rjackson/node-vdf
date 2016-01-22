@@ -67,6 +67,14 @@ var UNQUOTED_VDF = "\n\
     } \n\
     ",
 
+    DUPLICATE_KEYS_VDF = " \n\
+    node { \n\
+        \"key\" \"value\" \n\
+        key \"value2\" \n\
+        \"key\" value3 \n\
+    } \n\
+    ",
+
     /* Expectations */
     EXPECTED_UNQUOTED_VDF = {
         "node": {
@@ -96,7 +104,13 @@ var UNQUOTED_VDF = "\n\
                 },
             "key4": "value"
             }
-        };
+        },
+    EXPECTED_DUPLICATE_KEYS_VDF = {
+        "node": {
+            "key": ["value", "value2", "value3"]
+        }
+    };
+
 
 /* Serialization */
 var SIMPLE_OBJ = EXPECTED_UNQUOTED_VDF,
@@ -170,7 +184,8 @@ exports.deserialization = {
     test_macro_quoted: function (test) { test.equal(JSON.stringify(EXPECTED_MACRO_QUOTED_VDF), JSON.stringify(vdf.parse(MACRO_QUOTED_VDF))); test.done(); },
     test_comment_quoted: function (test) { test.equal(JSON.stringify(EXPECTED_COMMENT_QUOTED_VDF), JSON.stringify(vdf.parse(COMMENT_QUOTED_VDF))); test.done(); },
     test_subnode_quoted: function (test) { test.equal(JSON.stringify(EXPECTED_SUBNODE_QUOTED_VDF), JSON.stringify(vdf.parse(SUBNODE_QUOTED_VDF))); test.done(); },
-    test_mixed: function (test) { test.equal(JSON.stringify(EXPECTED_MIXED_VDF), JSON.stringify(vdf.parse(MIXED_VDF))); test.done(); }
+    test_mixed: function (test) { test.equal(JSON.stringify(EXPECTED_MIXED_VDF), JSON.stringify(vdf.parse(MIXED_VDF))); test.done(); },
+    test_duplicate_keys: function (test) { test.equal(JSON.stringify(EXPECTED_DUPLICATE_KEYS_VDF), JSON.stringify(vdf.parse(DUPLICATE_KEYS_VDF))); test.done(); }
 };
 
 exports.serialization = {
