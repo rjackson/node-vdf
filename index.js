@@ -102,7 +102,13 @@ function _parse(stream, ptr) {
                     lastbrk = undefined;  // Ignore this sentry if it's the second bracketed expression
                 }
                 else {
-                    deserialized[laststr] = string;
+                    if (laststr in deserialized) {
+                        if (!Array.isArray(deserialized[laststr])) deserialized[laststr] = [deserialized[laststr]];
+                        deserialized[laststr].push(string);
+                    }
+                    else {
+                        deserialized[laststr] = string;
+                    }
                 }
             }
             c = STRING;  // Force c == string so lasttok will be set properly.
